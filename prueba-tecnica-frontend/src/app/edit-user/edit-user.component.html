@@ -1,0 +1,41 @@
+<div class="card-container">
+    <a routerLink="/list-users" routerLinkActive="active">
+        <div class="card card-small" (click)="selection.value = 'build'" tabindex="0">
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Listar usuarios</span>
+        </div>
+    </a>
+</div>
+<h2 style="text-align: center;">Editar usuarios</h2>
+<form class="form-style-7" (ngSubmit)="onSubmit()" #editUser="ngForm">
+    <ul>
+        <li>
+            <label for="nombres">Nombres</label>
+            <input type="text" name="nombres" required minlength="4" [(ngModel)]="user.nombres">
+            <span>Ingresa tus nombres</span>
+        </li>
+        <li>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" required minlength="4" [(ngModel)]="user.apellidos">
+            <span>Ingresa tus apellidos</span>
+        </li>
+        <li>
+            <label for="cedula">Cedula</label>
+            <input type="number" name="cedula" required minlength="8" [(ngModel)]="user.cedula">
+            <span>Ingresa tu cedula</span>
+        </li>
+        <li>
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" required minlength="11" [(ngModel)]="user.correo">
+            <span>Ingresa tu correo</span>
+        </li>
+        <li>
+            <label for="telefono">Telefono</label>
+            <input type="number" name="telefono" required minlength="10" [(ngModel)]="user.telefono">
+            <span>Ingresa tu telefono</span>
+        </li>
+        <li>
+            <input type="submit" [disabled]="!editUser.form.valid" value="Editar usuario" >
+        </li>
+    </ul>
+</form>
